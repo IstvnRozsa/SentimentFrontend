@@ -47,9 +47,8 @@ fetch("/data/data.json")
     //Comboboxes
     let selectedCriteria = "vader_neg";
     let selectedDirection = "desc";
-    
-    var filtered_data = data;
 
+    var filtered_data = data;
 
     let comboboxSortCriteria = d3.select("#sortCriteria");
     comboboxSortCriteria.on("change", function () {
@@ -140,3 +139,21 @@ fetch("/data/data.json")
   .catch((error) => {
     console.error("Error:", error);
   });
+
+const htmltag = document.getElementById("htmltag");
+const themeCheckbox = document.getElementById("darkmode-cb");
+const navbar = document.getElementById("navbar");
+
+themeCheckbox.addEventListener("change", function () {
+  // Check if the checkbox is checked
+  if (themeCheckbox.checked) {
+    // If checked, change the data-bs-theme attribute to 'dark'
+    htmltag.setAttribute("data-bs-theme", "dark");
+    navbar.setAttribute("class", "navbar navbar-expand-lg navbar-dark bg-dark");
+
+  } else {
+    // If unchecked, change the data-bs-theme attribute to 'light'
+    htmltag.setAttribute("data-bs-theme", "light");
+    navbar.setAttribute("class", "navbar navbar-expand-lg navbar-light bg-light");
+  }
+});
